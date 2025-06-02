@@ -26,7 +26,7 @@ These form the core functionality for a working campus marketplace.
 
 * [ ] Show all listings on homepage
 * [ ] Item detail page (`/listing/<id>/`)
-* [ ] Filter by category 
+* [ ] Filter by category
 
 ### 📂 Project Structure
 
