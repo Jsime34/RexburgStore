@@ -10,7 +10,7 @@ These form the core functionality for a working campus marketplace.
 
 * [x] User signup with SweetAlert2 validation
 * [x] Login/logout
-* [x] Require login to post listings
+* [ ] Require login to post listings
 * [x] Profile basics (username, email, first & last name)
 
 ### 🏣 Listings (Sell Side)
