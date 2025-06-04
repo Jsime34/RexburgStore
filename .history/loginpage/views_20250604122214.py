@@ -5,8 +5,6 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from .forms import CustomUserCreationForm 
-from .forms import ListingForm
-from .models import Listing
 
 
 def store_view(request):

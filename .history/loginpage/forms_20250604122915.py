@@ -20,7 +20,7 @@ class CustomUserCreationForm(UserCreationForm):
         return email
 
 
-# handle listing creation
+# ✅ New form to handle listing creation
 class ListingForm(forms.ModelForm):
     class Meta:
         model = Listing

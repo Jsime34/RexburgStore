@@ -122,6 +122,7 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Media files (user uploads like listing images)
+
+# Media file handling (for user-uploaded content like images)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
