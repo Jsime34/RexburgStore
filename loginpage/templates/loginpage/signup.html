@@ -1,0 +1,32 @@
+{% extends 'loginpage/base.html' %}
+
+{% block content %}
+<section class="hero container">
+    <h2>Create Account</h2>
+
+    <!-- SweetAlert2 CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    {% if form.errors %}
+        <script id="form-errors-data" type="application/json">
+            {
+                {% for field in form %}
+                    "{{ field.label|escapejs }}": [
+                        {% for error in field.errors %}
+                            "{{ error|escapejs }}"{% if not forloop.last %},{% endif %}
+                        {% endfor %}
+                    ]{% if not forloop.last %},{% endif %}
+                {% endfor %}
+            }
+        </script>
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="cta-button">Sign Up</button>
+    </form>
+
+    <p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
+</section>
+{% endblock %}
