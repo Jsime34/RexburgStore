@@ -1,0 +1,26 @@
+{% extends 'loginpage/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <h2>Create New Listing</h2>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Post Listing</button>
+    </form>
+</div>
+
+{% if form.errors %}
+  <script id="form-errors-data" type="application/json">
+    {{ form.errors|json_script:"form-errors-data" }}
+  </script>
+{% endif %}
+
+{% for message in messages %}
+  <script>
+    window.listingSuccessMessages = window.listingSuccessMessages || [];
+    window.listingSuccessMessages.push("{{ message|escapejs }}");
+  </script>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'loginpage/style.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="{% static 'loginpage/scripts.js' %}" defer></script>
+    <title>{% block title %}BYUI Store{% endblock %}</title>
+</head>
+<body>
+    <header class="container">
+        <div class="header-content">
+            <h1>BYUI Team2 Store</h1>
+            <div class="menu-container">
+                <a href="#" id="menu-toggle" class="nav-link">Menu ☰</a>
+                <div class="nav-links" id="menu-content">
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'create-listing' %}" class="nav-link">Create Listing</a>
+                        <a href="{% url 'logout' %}" class="nav-link">Logout</a>
+                        <a href="{% url 'user-dashboard' %}" class="nav-link">Dashboard</a>
+                        <a href="{% url 'inbox' %}" class="nav-link">Inbox</a>
+                        <a href="{% url 'chat' %}" class="nav-link">RexburgChat</a>
+                    {% else %}
+                        <a href="{% url 'login' %}" class="nav-link">Login</a>
+                        <a href="{% url 'signup' %}" class="nav-link">Signup</a>
+                    {% endif %}
+                    <a href="/" class="nav-link">Home</a>
+                    </div>
+                </div>
+        </div>
+    </header>
+
+    {% block content %}{% endblock %}
+
+    <footer class="container">
+        <p>&copy; 2023 BYUI Team2 Store. All rights reserved.</p>
+    </footer>
+</body>
+</html>

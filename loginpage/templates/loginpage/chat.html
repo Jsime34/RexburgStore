@@ -1,0 +1,33 @@
+{% extends 'loginpage/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <h2>Live Chat</h2>
+    <div id="chat-box" style="height: 300px; border: 1px solid #ccc; padding: 10px; overflow-y: scroll; margin-bottom: 10px;"></div>
+    <input type="text" id="message-input" placeholder="Type a message..." style="width: 80%;">
+    <button onclick="sendMessage()">Send</button>
+</div>
+<script src="https://cdn.ably.io/lib/ably.min-1.js"></script>
+<script>
+    const ably = new Ably.Realtime('gO7FKA.3mj-1Q:g-UunUZGmbXW_bcwflzEAvyIGKb4Ej3E3EVXnp-ad6o');
+    const channel = ably.channels.get('chat-room');
+
+    const username = "{{ username }}";
+
+    channel.subscribe((message) => {
+        const chatBox = document.getElementById("chat-box");
+        const newMsg = document.createElement("p");
+        newMsg.textContent = `${message.data.sender}: ${message.data.text}`;
+        chatBox.appendChild(newMsg);
+        chatBox.scrollTop = chatBox.scrollHeight;
+    });
+
+    function sendMessage() {
+        const text = document.getElementById("message-input").value;
+        if (text.trim() !== "") {
+            channel.publish("message", { sender: username, text });
+            document.getElementById("message-input").value = "";
+        }
+    }
+</script>
+{% endblock %}

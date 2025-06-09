@@ -1,0 +1,19 @@
+<div class="listing-grid">
+    {% for listing in listings %}
+        <div class="listing-card">
+            {% if listing.image %}
+                <img src="{{ listing.image.url }}" alt="Listing Image" class="listing-image">
+            {% endif %}
+            <h3>{{ listing.title }}</h3>
+            <p><strong>Price:</strong> ${{ listing.price }}</p>
+            <p><strong>Description:</strong> {{ listing.description }}</p>
+            <p><strong>Posted on:</strong> {{ listing.created_at|date:"F j, Y, g:i a" }}</p>
+
+            <a href="{% url 'edit-listing' listing.id %}" class="cta-button">Edit</a>
+            <form method="post" action="{% url 'delete-listing' listing.id %}" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit" class="cta-button" style="background-color: #cc0000;">Delete</button>
+            </form>
+        </div>
+    {% endfor %}
+</div>

@@ -1,0 +1,18 @@
+{% extends 'loginpage/base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="listing-card">
+        {% if listing.image %}
+            <img src="{{ listing.image.url }}" class="listing-image" alt="{{ listing.title }}">
+        {% endif %}
+        <h2>{{ listing.title }}</h2>
+        <p><strong>Price:</strong> ${{ listing.price }}</p>
+        <p><strong>Condition:</strong> {{ listing.get_condition_display }}</p>
+        <p><strong>Category:</strong> {{ listing.get_category_display }}</p>
+        <p><strong>Description:</strong><br>{{ listing.description }}</p>
+        <p><strong>Posted by:</strong> {{ listing.seller.username }}</p>
+        <p><strong>Created at:</strong> {{ listing.created_at|date:"F j, Y, g:i a" }}</p>
+    </div>
+</div>
+{% endblock %}

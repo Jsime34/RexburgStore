@@ -1,0 +1,14 @@
+{% extends 'loginpage/base.html' %}
+
+{% block content %}
+<section class="container">
+    <h2>Welcome, {{ request.user.username }}!</h2>
+
+    <p>Email: {{ request.user.email }}</p>
+    <p>Date Joined: {{ request.user.date_joined }}</p>
+
+    <div style="margin-top: 20px;">
+        <a href="{% url 'create-listing' %}" class="cta-button">Create New Listing</a>
+    </div>
+</section>
+{% endblock %}

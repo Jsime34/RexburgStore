@@ -1,0 +1,23 @@
+<!-- listing_detail.html -->
+{% extends 'loginpage/base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="listing-card">
+        {% if listing.image %}
+            <img src="{{ listing.image.url }}" class="listing-image" alt="{{ listing.title }}">
+        {% endif %}
+        <h2>{{ listing.title }}</h2>
+        <p><strong>Price:</strong> ${{ listing.price }}</p>
+        <p><strong>Condition:</strong> {{ listing.get_condition_display }}</p>
+        <p><strong>Description:</strong> {{ listing.description }}</p>
+        <p><strong>Seller:</strong> {{ listing.seller.username }}</p>
+        <p><strong>Posted:</strong> {{ listing.created_at|date:"M d, Y H:i" }}</p>
+
+        {% if user.is_authenticated and request.user != listing.seller %}
+            <a href="{% url 'conversation' listing.id %}" class="btn btn-primary">Message Seller</a>
+        {% endif %}
+
+    </div>
+</div>
+{% endblock %}

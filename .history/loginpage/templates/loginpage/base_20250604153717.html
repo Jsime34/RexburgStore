@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="{% static 'loginpage/style.css' %}">
+
+    <!-- SweetAlert2 library -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
+
+    <!-- Custom JS -->
+    <script src="{% static 'loginpage/scripts.js' %}" defer></script>
+
+    <title>{% block title %}BYUI Store{% endblock %}</title>
+</head>
+<body>
+    <header class="container">
+        <div class="header-content">
+            <h1>BYUI Team2 Store</h1>
+            <div class="nav-links">
+                {% if user.is_authenticated %}
+                    <a href="{% url 'logout' %}" class="nav-link">Logout</a>
+                {% else %}
+                    <a href="{% url 'login' %}" class="nav-link">Login</a>
+                    <a href="{% url 'signup' %}" class="nav-link">Signup</a>
+                {% endif %}
+                <a href="#" class="nav-link">Menu</a>
+                <a href="/" class="nav-link">Home</a>
+            </div>
+        </div>
+    </header>
+
+    {% block content %}{% endblock %}
+
+    <footer class="container">
+        <p>&copy; 2023 BYUI Team2 Store. All rights reserved.</p>
+    </footer>
+</body>
+</html>

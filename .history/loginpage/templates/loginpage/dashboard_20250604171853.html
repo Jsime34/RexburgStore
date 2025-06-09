@@ -1,0 +1,35 @@
+{% extends 'loginpage/base.html' %}
+
+{% block content %}
+<section class="container">
+    <h2>Welcome, {{ user.username }}!</h2>
+
+    <h3>Your Info:</h3>
+    <ul>
+        <li><strong>Username:</strong> {{ user.username }}</li>
+        <li><strong>Email:</strong> {{ user.email }}</li>
+        <li><strong>First Name:</strong> {{ user.first_name }}</li>
+        <li><strong>Last Name:</strong> {{ user.last_name }}</li>
+        <li><strong>Date Joined:</strong> {{ user.date_joined }}</li>
+    </ul>
+
+    <h3>Your Listings:</h3>
+    {% if listings %}
+        <ul>
+        {% for listing in listings %}
+            <li>
+                <strong>{{ listing.title }}</strong><br>
+                {{ listing.description }}<br>
+                <em>Posted on {{ listing.created_at }}</em>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>You haven’t posted any listings yet.</p>
+    {% endif %}
+
+    <div style="margin-top: 20px;">
+        <a href="{% url 'create-listing' %}" class="cta-button">Create New Listing</a>
+    </div>
+</section>
+{% endblock %}

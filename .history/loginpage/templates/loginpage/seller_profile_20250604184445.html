@@ -1,0 +1,27 @@
+{% extends 'loginpage/base.html' %}
+{% block content %}
+<div class="container">
+    <h2>Seller: {{ seller.username }}</h2>
+    <p><strong>Email:</strong> {{ seller.email }}</p>
+    <p><strong>Full Name:</strong> {{ seller.first_name }} {{ seller.last_name }}</p>
+
+    <h3>Listings by {{ seller.username }}</h3>
+    <div class="listing-grid">
+        {% for listing in listings %}
+            <div class="listing-card">
+                {% if listing.image %}
+                    <img src="{{ listing.image.url }}" class="listing-image" alt="{{ listing.title }}">
+                {% else %}
+                    <div class="listing-image" style="background-color:#eee; display:flex; align-items:center; justify-content:center;">
+                        <span>No Image</span>
+                    </div>
+                {% endif %}
+                <h4>{{ listing.title }}</h4>
+                <p><strong>Price:</strong> ${{ listing.price }}</p>
+            </div>
+        {% empty %}
+            <p>This seller has no listings.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
