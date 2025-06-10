@@ -1,0 +1,55 @@
+{% extends 'loginpage/base.html' %}
+{% block content %}
+<div class="container">
+    <h2>Browse Listings</h2>
+
+    <!-- Search Form -->
+    <form method="get" action="" style="margin-bottom: 1rem;">
+        <input type="text" name="q" placeholder="Search listings..." value="{{ request.GET.q }}">
+        {% if selected_category %}
+            <input type="hidden" name="category" value="{{ selected_category }}">
+        {% endif %}
+        <button type="submit">Search</button>
+    </form>
+
+
+    <!-- Category Filter -->
+    <div class="nav-links" style="margin: 20px 0; gap: 10px; flex-wrap: wrap;">
+        <a href="{% url 'store' %}" class="cta-button">All</a>
+        {% for category in categories %}
+            <a href="?category={{ category }}" class="cta-button {% if selected_category == category %}active{% endif %}">
+                {{ category|title }}
+            </a>
+        {% endfor %}
+    </div>
+
+    <!-- Listings Grid -->
+    <div class="listing-grid">
+        {% for listing in listings %}
+            <div class="listing-card">
+                {% if listing.image %}
+                    <img src="{{ listing.image.url }}" class="listing-image" alt="{{ listing.title }}">
+                {% else %}
+                    <div class="listing-image" style="background-color:#eee; display:flex; align-items:center; justify-content:center;">
+                        <span>No Image</span>
+                    </div>
+                {% endif %}
+                
+                <a href="{% url 'listing-detail' listing.id %}">
+                    <h3>{{ listing.title }}</h3>
+                </a>
+                
+                <p><strong>Price:</strong> ${{ listing.price }}</p>
+                <p><strong>Condition:</strong> {{ listing.get_condition_display }}</p>
+                <p><strong>Seller:</strong>
+                    <a href="{% url 'seller-profile' listing.seller.id %}">
+                        {{ listing.seller.username }}
+                    </a>
+                </p>
+            </div>
+        {% empty %}
+            <p>No listings found for this category.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'loginpage/base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Your Conversations</h2>
+
+    {% if threads %}
+        <ul style="list-style: none; padding-left: 0;">
+            {% for thread in threads %}
+                <li style="margin-bottom: 1rem; border-bottom: 1px solid #ccc; padding-bottom: 0.5rem;">
+                <a href="{% url 'conversation' listing_id=thread.listing.id %}?user_id={{ thread.other_user.id }}" style="text-decoration: none; color: inherit;">
+                        <strong>{{ thread.other_user.username }}</strong> <br>
+                        <em>Listing: {{ thread.listing.title }}</em><br>
+                        <small>Last message: {{ thread.last_message.timestamp|date:"M d, H:i" }}</small>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>You have no messages yet.</p>
+    {% endif %}
+</div>
+{% endblock %}

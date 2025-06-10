@@ -1,0 +1,40 @@
+{% extends 'loginpage/base.html' %}
+
+{% block content %}
+<section class="container">
+    <h2>Your Dashboard</h2>
+
+    <h3>Your Info</h3>
+    <ul>
+        <li><strong>Username:</strong> {{ user.username }}</li>
+        <li><strong>Email:</strong> {{ user.email }}</li>
+        <li><strong>First Name:</strong> {{ user.first_name }}</li>
+        <li><strong>Last Name:</strong> {{ user.last_name }}</li>
+    </ul>
+
+    <h3>Your Listings</h3>
+    {% if listings %}
+        <div class="listing-grid">
+            {% for listing in listings %}
+                <div class="listing-card">
+                    {% if listing.image %}
+                        <img src="{{ listing.image.url }}" alt="{{ listing.title }}" class="listing-image">
+                    {% endif %}
+                    <h4>{{ listing.title }}</h4>
+                    <p><strong>Price:</strong> ${{ listing.price }}</p>
+                    <p><strong>Condition:</strong> {{ listing.get_condition_display }}</p>
+                    <p><strong>Category:</strong> {{ listing.get_category_display }}</p>
+                    <p>{{ listing.description }}</p>
+                    <p><small><strong>Posted on:</strong> {{ listing.created_at|date:"M d, Y - H:i" }}</small></p>
+                    <form method="POST" action="{% url 'delete-listing' listing.id %}">
+                        {% csrf_token %}
+                        <button type="submit" onclick="return confirm('Delete this listing?')">Delete</button>
+                    </form>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>You haven't created any listings yet.</p>
+    {% endif %}
+</section>
+{% endblock %}

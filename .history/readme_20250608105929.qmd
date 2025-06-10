@@ -1,0 +1,41 @@
+## Overview
+
+**Project Title**: RexburgStore (BYUI Marketplace)
+
+**Project Description**:  
+A Django-powered campus marketplace where students can create accounts, post listings, browse categories, and communicate directly with sellers using a built-in messaging system. The site includes dashboard management, real-time chat support, and features for marking listings as sold.
+
+**Project Goals**:  
+* Provide authentication and user dashboard  
+* Allow users to create, edit, and delete listings  
+* Enable peer-to-peer messaging tied to each listing  
+* Display all listings, with category filters and search  
+* Maintain a clean, modular, and responsive layout  
+
+---
+
+## Instructions for Build and Use
+
+Steps to build and/or run the software:
+
+1. Clone or download the repository into a local folder  
+2. Navigate into the project folder:  
+   ```bash
+   cd RexburgStore
+3. Install these packages 
+   1. pip install django
+   2. pip install pillow           # For image uploads
+   3. pip install sweetify         # For SweetAlert2 Django integration
+   4. pip install ably             # Real-time messaging support
+
+4. To recreate the development environment, you need:
+   1. Python 3.11 or higher
+5. Django 5.2+
+
+Visual Studio Code (with Python extension)
+
+Google Chrome or Firefox
+
+Optional: SQLite (bundled with Django), or configure PostgreSQL
+
+Optional: Node.js (if using npm packages or frontend tooling)
