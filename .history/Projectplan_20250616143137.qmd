@@ -26,13 +26,13 @@ These form the core functionality for a working campus marketplace.
 
 * [x] Show all listings on homepage
 * [x] Item detail page (`/listing/<id>/`)
-* [x] Filter by category 
+* [ ] Filter by category 
 
 ### 📂 Project Structure
 
 * [x] Static files: `style.css`, `scripts.js`
 * [x] Template base layout
-* [x] Media setup for images (upload and preview)
+* [ ] Media setup for images (upload and preview)
 
 ---
 
@@ -42,17 +42,17 @@ These add polish, improve usability, and increase trust.
 
 ### 📟 Listings
 
-* [x] Image upload (1–3 images)
+* [ ] Image upload (1–3 images)
 * [ ] Mark item as “sold”
 * [ ] Optional location (text field)
-* [x] Search bar for keywords
+* [ ] Search bar for keywords
 * [ ] Sort by price/date
 
 ### 👤 User Features
 
-* [x] User profile page
+* [ ] User profile page
 * [ ] Show all listings by a user
-* [x] Update profile info
+* [ ] Update profile info
 * [ ] Deactivate account
 
 ### 📩 Contact & Interaction
@@ -74,13 +74,13 @@ These add polish, improve usability, and increase trust.
 
 ### 🗨 Messaging
 
-* [x] Internal messaging system (inbox, thread)
-* [x] Buyer/seller chat history
+* [ ] Internal messaging system (inbox, thread)
+* [ ] Buyer/seller chat history
 
 ### 📊 Admin & Analytics
 
-* [x] Admin dashboard for metrics (most active, top categories)
-* [x] Listing view counter
+* [ ] Admin dashboard for metrics (most active, top categories)
+* [ ] Listing view counter
 * [ ] Approve/reject listings from admin
 
 ### 🌍 UX Enhancements
