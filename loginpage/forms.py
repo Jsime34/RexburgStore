@@ -2,7 +2,8 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
-from .models import Listing  # 👈 Import your Listing model
+from .models import Listing 
+
 
 class CustomUserCreationForm(UserCreationForm):
     email = forms.EmailField(required=True)
@@ -27,4 +28,14 @@ class ListingForm(forms.ModelForm):
         fields = ['title', 'description', 'price', 'category', 'condition', 'image']
         widgets = {
             'description': forms.Textarea(attrs={'rows': 4}),
+        }
+
+class EditProfileForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['first_name', 'last_name', 'email']
+        widgets = {
+            'first_name': forms.TextInput(attrs={'placeholder': 'First Name'}),
+            'last_name': forms.TextInput(attrs={'placeholder': 'Last Name'}),
+            'email': forms.EmailInput(attrs={'placeholder': 'Email Address'}),
         }

@@ -26,7 +26,7 @@
     <!-- Listings Grid -->
     <div class="listing-grid">
         {% for listing in listings %}
-            <div class="listing-card">
+            <a href="{% url 'listing-detail' listing.id %}" class="listing-card">
                 {% if listing.image %}
                     <img src="{{ listing.image.url }}" class="listing-image" alt="{{ listing.title }}">
                 {% else %}
@@ -34,19 +34,10 @@
                         <span>No Image</span>
                     </div>
                 {% endif %}
-                
-                <a href="{% url 'listing-detail' listing.id %}">
-                    <h3>{{ listing.title }}</h3>
-                </a>
-                
+                <h3>{{ listing.title }}</h3>
                 <p><strong>Price:</strong> ${{ listing.price }}</p>
                 <p><strong>Condition:</strong> {{ listing.get_condition_display }}</p>
-                <p><strong>Seller:</strong>
-                    <a href="{% url 'seller-profile' listing.seller.id %}">
-                        {{ listing.seller.username }}
-                    </a>
-                </p>
-            </div>
+            </a>
         {% empty %}
             <p>No listings found for this category.</p>
         {% endfor %}

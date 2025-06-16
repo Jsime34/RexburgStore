@@ -9,4 +9,11 @@
         <button type="submit">Post Listing</button>
     </form>
 </div>
+{% if messages %}
+  <ul>
+    {% for message in messages %}
+      <li>{{ message }} — Tags: {{ message.tags }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
 {% endblock %}
