@@ -79,8 +79,8 @@ These add polish, improve usability, and increase trust.
 
 ### 📊 Admin & Analytics
 
-* [x] Admin dashboard for metrics (most active, top categories)
-* [x] Listing view counter
+* [ ] Admin dashboard for metrics (most active, top categories)
+* [ ] Listing view counter
 * [ ] Approve/reject listings from admin
 
 ### 🌍 UX Enhancements

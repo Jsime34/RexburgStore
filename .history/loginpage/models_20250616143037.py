@@ -33,7 +33,7 @@ class Listing(models.Model):
 class Message(models.Model):
     sender = models.ForeignKey(User, related_name='sent_messages', on_delete=models.CASCADE)
     receiver = models.ForeignKey(User, related_name='received_messages', on_delete=models.CASCADE)
-    listing = models.ForeignKey(Listing, on_delete=models.CASCADE) 
+    listing = models.ForeignKey(Listing, on_delete=models.CASCADE)  # You were missing this line in Message model
     content = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True)
 
