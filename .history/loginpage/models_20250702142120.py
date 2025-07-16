@@ -27,14 +27,23 @@ class Listing(models.Model):
     seller = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
+/*************  ✨ Windsurf Command ⭐  *************/
+        """
+        Return a string representation of this Listing.
+
+        Returns:
+            str: The title of this Listing.
+        """
+/*******  0c582cd3-9bee-4c51-a263-76df555adaaf  *******/
         return self.title
-    
+
+
 class Message(models.Model):
     sender = models.ForeignKey(User, related_name='sent_messages', on_delete=models.CASCADE)
     receiver = models.ForeignKey(User, related_name='received_messages', on_delete=models.CASCADE)
-    listing = models.ForeignKey(Listing, related_name='messages', on_delete=models.CASCADE)
+    listing = models.ForeignKey(Listing, on_delete=models.CASCADE) 
     content = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"[{self.listing.title}] {self.sender} → {self.receiver}: {self.content[:20]}"
+        return f"From {self.sender} to {self.receiver}: {self.content[:20]}"

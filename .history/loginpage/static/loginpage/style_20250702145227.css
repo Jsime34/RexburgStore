@@ -1,4 +1,4 @@
-body {
+/* body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
@@ -38,6 +38,12 @@ header {
 }
 .nav-link:hover {
     text-decoration: underline;
+}
+
+img{
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
 }
 .hero {
     padding: 40px 0;
@@ -93,28 +99,42 @@ footer {
     margin-top: 20px;
 }
 
-.listing-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    margin-top: 1rem;
-}
-
-.listing-card {
-    border: 1px solid #ccc;
-    padding: 1rem;
-    border-radius: 8px;
-    background-color: #fdfdfd;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-}
-
 .listing-image {
-    width: 30%;
-    height: 200px;
+    width: 100% !important;
+    height: auto;
+    max-height: 60%;
     object-fit: cover;
-    border-radius: 6px;
-    margin-bottom: 0.5rem;
-    display: block;
-    background-color: #f4f4f4; 
+    margin-bottom: 6px;
+    border-radius: 4px;
 }
 
+.listing-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.listing-card{
+    aspect-ratio: 1 / 1;
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 5px;
+    box-sizing: border-box;
+    text-align: center;
+    font-weight: bold;
+}
+
+.listing-card h3{
+    font-size: 14px;
+    margin: 5px 0px;
+    line-height: 1.2;
+    color: #555;
+} */
