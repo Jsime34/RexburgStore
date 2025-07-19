@@ -51,7 +51,7 @@ These add polish, improve usability, and increase trust.
 ### 👤 User Features
 
 * [x] User profile page
-* [ ] Show all listings by a user
+* [x] Show all listings by a user
 * [x] Update profile info
 * [ ] Deactivate account
 
