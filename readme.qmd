@@ -1,18 +1,21 @@
-## Overview
+# Project Title:
 
-**Project Title**: RexburgStore (BYUI Marketplace)
+RexburgStore (BYUI Marketplace)
 
-**Project Description**:  
+## Team Members
+* Shepherd Ncube
+* Mark Christensen
+* Jaime Gutierrez Zevallos
+* Umah Umah
+
+## Software Description
 A Django-powered campus marketplace where students can create accounts, post listings, browse categories, and communicate directly with sellers using a built-in messaging system. The site includes dashboard management, real-time chat support, and features for marking listings as sold.
 
-**Project Goals**:  
-* Provide authentication and user dashboard  
-* Allow users to create, edit, and delete listings  
-* Enable peer-to-peer messaging tied to each listing  
-* Display all listings, with category filters and search  
-* Maintain a clean, modular, and responsive layout  
-
----
+## Architecture
+This application follows the standard Django MVC (Model-View-Controller) structure.
+* Models: Users, Listings, Messages
+* Views: Dynamic page rendering, dashboard, listing detail views
+* Controllers: Django Views + Ably Integration for real-time communication
 
 ## Instructions for Build and Use
 
@@ -22,47 +25,80 @@ Steps to build and/or run the software:
 2. Navigate into the project folder:  
    ```bash
    cd RexburgStore
-3. Install these packages 
-   1. pip install django
-   2. pip install pillow           # For image uploads
-   3. pip install sweetify         # For SweetAlert2 Django integration
-   4. pip install ably             # Real-time messaging support
+   ```
+3. Install these packages:
+   ```bash
+   pip install django
+   pip install pillow          
+   pip install sweetify        
+   pip install ably             
+   ```
 
-4. To recreate the development environment, you need:
-   1. Python 3.11 or higher
-   2. Django 5.2+
-   3. Visual Studio Code (with Python extension)
-   4. Google Chrome or Firefox
+Instructions for using the software:
 
-Useful Websites to Learn More
-I found these helpful during development:
+1. Start the Django development server:  
+   ```bash
+   python manage.py runserver
+   ```
+2. Access the site at `http://127.0.0.1:8000/`
+3. Register a user, create listings, and explore features
 
-Django Documentation - https://docs.djangoproject.com/en/5.2/
+## Development Environment 
 
-Ably Realtime Docs - https://ably.com/docs
+To recreate the development environment, you need the following software and/or libraries with the specified versions:
 
-SweetAlert2 Documentation - https://sweetalert2.github.io/
+* Python 3.11 or higher
+* Django 5.2+
+* Visual Studio Code (with Python extension)
+* Google Chrome or Firefox
 
-W3Schools Django Tutorial - https://www.w3schools.com/django/
+## Useful Websites to Learn More
 
-Pillow Image Library - https://pillow.readthedocs.io/en/stable/
+I found these websites useful in developing this software:
 
+* [Django Documentation](https://docs.djangoproject.com/en/5.2/)
+* [Ably Realtime Docs](https://ably.com/docs)
+* [SweetAlert2 Documentation](https://sweetalert2.github.io/)
+* [W3Schools Django Tutorial](https://www.w3schools.com/django/)
+* [Pillow Image Library](https://pillow.readthedocs.io/en/stable/)
 
-Future Work
-Planned features and improvements:
+## Software Features
+- [x] User authentication and registration
+- [x] Dashboard to manage user listings
+- [x] Create, edit, and delete listings
+- [x] Upload listing images
+- [x] Real-time messaging between users (Ably)
+- [x] Filter listings by category
+- [ ] Mark listings as sold with status badge
+- [ ] Add search by keyword and price range
+- [ ] Listing favorites and reporting system
+- [ ] User profile editing and display all listings by a user
+- [ ] Admin moderation tools and analytics
+- [ ] Mobile responsiveness improvements
+- [ ] Seller feedback and ratings
 
- Mark listings as sold with status badge
+## Team Communication
+We communicated through regular in-person meetings, shared documents, and GitHub issues. We also used instant messaging platforms to coordinate work.
 
- Add user profile editing
+## Team Responsibilities
+* Shepherd Ncube – Backend development, messaging system, and database models
+* Mark Christensen – Backend development, listing management, and user authentication
+* Jaime Gutierrez Zevallos – Frontend development, UI/UX design, and listing display
+* Umah Umah – Frontend development, real-time chat integration, and testing
 
- Add listing search with keyword and price range
+## Reflections
 
- Show all listings from a specific user
+### What Went Well
+1. Regular team check-ins helped us stay aligned on priorities and resolve issues early.
+2. Having a clear division of tasks allowed us to work in parallel and meet deadlines.
+3. Having a front end and back end team allowed us to focus on the core functionality.
 
- Implement listing favorites and reports
+### What Didn't Go Well
+1. Time management became a challenge near the end of the sprint.
+2. Not all planned features were completed due to underestimating complexity.
+3. Testing coverage was low, leading to missed bugs during deployment.
 
- Add admin moderation tools and analytics
-
- Optimize layout for mobile devices
-
- Enable rating or feedback for sellers
+### Future Improvements
+* Allocate more time for unexpected delays and testing.
+* Break tasks into smaller, more manageable units.
+* Begin integrating and testing new features earlier in the sprint.
