@@ -1,19 +1,19 @@
-# 📅 BYUI Store – Full Project Plan
+# BYUI Store – Full Project Plan
 
 ---
 
-## 🟢 MUST-HAVE FEATURES (MVP)
+## MUST-HAVE FEATURES (MVP)
 
 These form the core functionality for a working campus marketplace.
 
-### 🔐 Authentication
+### Authentication
 
 * [x] User signup with SweetAlert2 validation
 * [x] Login/logout
 * [x] Require login to post listings
 * [x] Profile basics (username, email, first & last name)
 
-### 🏣 Listings (Sell Side)
+### Listings (Sell Side)
 
 * [x] Define `Listing` model
 * [x] Category dropdown (`choices`)
@@ -22,13 +22,13 @@ These form the core functionality for a working campus marketplace.
 * [x] Add listing creation view (with `@login_required`)
 * [x] Listing template with SweetAlert2 success popup
 
-### 📄 Viewing & Browsing
+### Viewing & Browsing
 
 * [x] Show all listings on homepage
 * [x] Item detail page (`/listing/<id>/`)
 * [x] Filter by category 
 
-### 📂 Project Structure
+### Project Structure
 
 * [x] Static files: `style.css`, `scripts.js`
 * [x] Template base layout
@@ -36,11 +36,11 @@ These form the core functionality for a working campus marketplace.
 
 ---
 
-## 🟡 NICE-TO-HAVE FEATURES
+## NICE-TO-HAVE FEATURES
 
 These add polish, improve usability, and increase trust.
 
-### 📟 Listings
+### Listings
 
 * [x] Image upload (1–3 images)
 * [ ] Mark item as “sold”
@@ -48,14 +48,14 @@ These add polish, improve usability, and increase trust.
 * [x] Search bar for keywords
 * [ ] Sort by price/date
 
-### 👤 User Features
+### User Features
 
 * [x] User profile page
 * [ ] Show all listings by a user
 * [x] Update profile info
 * [ ] Deactivate account
 
-### 📩 Contact & Interaction
+### Contact & Interaction
 
 * [ ] “Contact Seller” form (sends email or opens mail client)
 * [ ] Favorite/save listing
@@ -63,33 +63,33 @@ These add polish, improve usability, and increase trust.
 
 ---
 
-## 🔵 STRETCH GOALS
+## STRETCH GOALS
 
 
-### ⭐ Trust & Safety
+### Trust & Safety
 
 * [ ] Report listing button
 * [ ] Seller rating system
 * [ ] Verified seller badge (email-based or admin)
 
-### 🗨 Messaging
+### Messaging
 
 * [x] Internal messaging system (inbox, thread)
 * [x] Buyer/seller chat history
 
-### 📊 Admin & Analytics
+### Admin & Analytics
 
 * [x] Admin dashboard for metrics (most active, top categories)
 * [x] Listing view counter
 * [ ] Approve/reject listings from admin
 
-### 🌍 UX Enhancements
+### UX Enhancements
 
 * [ ] Dark mode toggle
 * [ ] Mobile responsive layout
 * [ ] 404, 403, and 500 error pages
 
-### 💳 Optional Commerce
+### Optional Commerce
 
 * [ ] Simulated checkout
 * [ ] Stripe sandbox integration
